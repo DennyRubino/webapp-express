@@ -17,6 +17,7 @@
   "homepage": "https://github.com/DennyRubino/webapp-express#readme",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "mysql2": "^3.12.0"
   }
 }
