@@ -1,12 +1,13 @@
 const express = require("express");
+const cors = require("cors");
 const db = require("./db");
 require("dotenv").config();
 
 const app = express();
 const port = 3000;
 
+app.use(cors());
 app.use(express.json());
-app.use(require("cors")());
 
 app.get("/movies", async (req, res) => {
   try {
