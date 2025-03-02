@@ -1,14 +1,14 @@
-const mysql = require("mysql2");
-require("dotenv").config();
+const mysql = require("mysql2/promise");
 
-const pool = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
+const db = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "Rubino13_",
+  database: "webapp-express",
 });
 
-module.exports = pool.promise();
+db.getConnection()
+  .then(() => console.log(" Connessione a MySQL riuscita!"))
+  .catch((err) => console.error(" Errore nella connessione a MySQL:", err));
+
+module.exports = db;
